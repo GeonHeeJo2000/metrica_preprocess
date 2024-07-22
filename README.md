@@ -1,13 +1,35 @@
-# metrica_preprocess
-Metrica데이터셋 전처리 작업
+# Metrica Data Preprocessing
 
-- Metrica Sports Sample Data를 전처리하는 작업
-- 공개되어있는 tracking-data를 활용하여 EPV, Un-xPass, PitchControl, Intended-receiver Prediction등 다양한 연구에 활용하기 위해 사전에 전처리한 작업
-- 활용 이유: 기존 Metrica데이터셋은 이벤트유형이 다양하고, 이벤트 성공여부가 저장이 되어있지 않기 때문에 바로 사용하기에는 제약이 있음
+This repository contains the preprocessing steps for the Metrica Sports Sample Data. The goal is to prepare the data for various research applications such as EPV, Un-xPass, PitchControl, and Intended-receiver Prediction.
 
-작업 순서
-----------------
-1. https://github.com/metrica-sports/sample-data에서 data전부 다운로드(용량 제한때문에 일부만 첨부함)
-2. notebook순서대로 실행
-* 4-analyze-Intended-receiver.ipynb : 실패한 패스의 경우 패스의 의도를 알 수 없기 때문에 Intended-receiver의 정보("to"라는 컬럼)가 Nan으로 설정되어있다. 이는 실패한 패스를 분석할 때 제약이 있기 때문에 패스의 의도를 추가로 레이블링하였다.
-* 레이블링은 두명의 연구자가 제작하고, 교차검증하여 수행했다. @menguri
+## Overview
+
+The Metrica dataset includes a wide variety of event types, and it does not store the success or failure of these events. These factors limit its immediate usability. This preprocessing aims to address these limitations and prepare the data for advanced analysis.
+
+## Steps for Preprocessing
+
+1. **Download Data**
+   - Download the full dataset from the [Metrica Sports Sample Data repository](https://github.com/metrica-sports/sample-data). Due to size limitations, only a portion of the data is included here.
+
+2. **Run Notebooks Sequentially**
+   - Follow the order of the provided notebooks for preprocessing.
+
+### Notebooks
+
+- **4-analyze-Intended-receiver.ipynb**:
+  - In cases of failed passes, the intended receiver's information (the "to" column) is set to NaN since the pass intention is not clear. To address this limitation, we manually labeled the intended receiver for failed passes.
+
+### Labeling Process
+
+- The labeling was conducted by two researchers, and cross-validated to ensure accuracy.
+
+For further reference or collaboration, you can check the contributors' profiles. Note that `@menguri` is the GitHub username of another contributor and should be linked accordingly.
+
+## Contributors
+
+- Main Author: [조건희](https://github.com/GunHeeJoe)
+- Contributor: [강민구](https://github.com/menguri)
+
+---
+
+By following the steps outlined above, you can preprocess the Metrica dataset to make it more suitable for advanced research and analysis.
